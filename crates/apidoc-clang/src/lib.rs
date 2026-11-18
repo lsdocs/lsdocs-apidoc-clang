@@ -13,7 +13,13 @@
 //! [[plugins]]
 //! name = "cpp"
 //! builtin = "apidoc-cpp"
-//! options = { paths = ["include/mylib"], args = ["-DMYLIB_API="] }
+//! ```
+//!
+//! with its settings in `.config/lsdocs/cpp/settings.toml`:
+//!
+//! ```toml
+//! paths = ["include/mylib"]
+//! args = ["-DMYLIB_API="]
 //! ```
 //!
 //! - **Paths** (relative to the site directory): a header is a module,
@@ -44,7 +50,7 @@
 //!   `cpp:type`, `cpp:any`, ...), with the framework's `module`,
 //!   `currentmodule` and `auto`.
 //!
-//! Options: `paths` (required for generated pages), `args` (compiler
+//! Settings: `paths` (required for generated pages), `args` (compiler
 //! arguments, after the defaults `-x c -std=c17` or `-x c++
 //! -std=c++20`), and those of the framework (`output`, `private`,
 //! `title`, `doc_format`, `doc_style`, `generate`, `primary`).
