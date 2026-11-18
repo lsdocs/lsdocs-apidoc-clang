@@ -133,8 +133,9 @@ impl Language for CFamily {
         }
     }
 
-    fn settings(&self) -> &[&str] {
-        &["paths", "args"]
+    fn settings(&self) -> &[(&str, lsdocs_plugin_sdk::config::Kind)] {
+        use lsdocs_plugin_sdk::config::Kind;
+        &[("paths", Kind::Array), ("args", Kind::Array)]
     }
 
     fn doc_format(&self) -> &str {
