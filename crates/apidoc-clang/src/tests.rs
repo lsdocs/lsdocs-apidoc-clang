@@ -297,14 +297,16 @@ fn describes_declarations() {
 async fn documents_headers_with_references() {
     let page = "```{cpp:currentmodule} shapes\n```\n\nSee {cpp:class}`geo::Circle`, {cpp:func}`~geo::Shape::paint` and {cpp:enumerator}`Color::Blue`.\n\n```{cpp:auto} geo::Point\n```\n";
     let plugin = plugin_cpp();
-    let init = InitializeParams {
-        site: SiteInfo {
-            root: Some(root().to_string_lossy().into_owned()),
-            ..SiteInfo::default()
+    let init = lsdocs_plugin_sdk::Setup::with_settings(
+        InitializeParams {
+            site: SiteInfo {
+                root: Some(root().to_string_lossy().into_owned()),
+                ..SiteInfo::default()
+            },
+            ..InitializeParams::default()
         },
-        options: json!({"paths": ["include/geo/shapes.hpp"]}),
-        ..InitializeParams::default()
-    };
+        json!({"paths": ["include/geo/shapes.hpp"]}),
+    );
     let declared = plugin.capabilities_for(&init).syntax;
     let (guide, diagnostics) =
         lsdocs_parser_markdown::parse_with_syntax("guide.md", page, &declared);
