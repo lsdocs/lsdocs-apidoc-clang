@@ -127,6 +127,10 @@ impl Language for CFamily {
         }
     }
 
+    fn settings(&self) -> &[&str] {
+        &["paths", "args"]
+    }
+
     fn doc_format(&self) -> &str {
         "md"
     }
