@@ -1,0 +1,39 @@
+# lsdocs-apidoc-clang's API pages, built by `nur api` into api/site.
+
+[site]
+title = "apidoc-c and apidoc-cpp samples"
+
+[build]
+source_dir = "content"
+
+[[plugins]]
+name = "markdown"
+builtin = "parser-markdown"
+
+[[plugins]]
+name = "c"
+builtin = "apidoc-c"
+
+[[plugins]]
+name = "cpp"
+builtin = "apidoc-cpp"
+
+[[plugins]]
+name = "toc"
+builtin = "transform-toc"
+
+[[plugins]]
+name = "links"
+builtin = "transform-links"
+
+[[plugins]]
+name = "nav"
+builtin = "transform-nav"
+
+[[plugins]]
+name = "highlight"
+builtin = "transform-highlight"
+
+[[plugins]]
+name = "html"
+builtin = "render-html"
